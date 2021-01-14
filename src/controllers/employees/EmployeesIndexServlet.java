@@ -15,18 +15,17 @@ import models.Employee;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class EmployeeIndexServlet
+ * Servlet implementation class EmployeesIndexServlet
  */
 @WebServlet("/employees/index")
-public class EmployeeIndexServlet extends HttpServlet {
+public class EmployeesIndexServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmployeeIndexServlet() {
+    public EmployeesIndexServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -54,10 +53,10 @@ public class EmployeeIndexServlet extends HttpServlet {
         request.setAttribute("page", page);
         if(request.getSession().getAttribute("flush") != null) {
             request.setAttribute("flush", request.getSession().getAttribute("flush"));
+            request.getSession().removeAttribute("flush");
         }
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employees/index.jsp");
-                rd.forward(request, response);
+        rd.forward(request, response);
     }
-
 }
