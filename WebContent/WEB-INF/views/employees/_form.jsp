@@ -3,7 +3,7 @@
 <c:if test="${errors != null}">
     <div id="flush_error">
         入力内容にエラーがあります。<br />
-        <c:forEach var="error" items="{errors}">
+        <c:forEach var="error" items="${errors}">
             ・<c:out value="${error}" /><br />
         </c:forEach>
     </div>
@@ -14,6 +14,10 @@
 
 <label for="name">氏名</label>
 <input type="text" name="name" value="${employee.name}" />
+<br /><br />
+
+<label for="password">パスワード</label><br />
+<input type="password" name="password" />
 <br /><br />
 
 <label for="admin_flag">権限</label><br />
